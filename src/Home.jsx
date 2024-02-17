@@ -18,6 +18,10 @@ const Home = () => {
     setOpen(!open);
   };
 
+  const closeModal = () => {
+    setOpen(false);
+  };
+
   useEffect(() => {
     localStorage.setItem("groups", JSON.stringify(groups));
     localStorage.setItem("notesData", JSON.stringify(notesData));
@@ -25,7 +29,7 @@ const Home = () => {
 
   return (
     <div className={`Section flexbetween`}>
-      {open && <Modal className="modalPosition" setGroups={setGroups} />}
+      {open && <Modal className="modalPosition" setGroups={setGroups} closeModal={closeModal}/>}
 
       {/* SIDEBAR START */}
       <div className="tabSection">
