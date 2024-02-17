@@ -1,40 +1,4 @@
-// import React, { useState } from "react";
 
-// const Modal = ({ className ,setGroups}) => {
-//   const [groupName, setGroupName] = useState("");
-
-//   const handleModal = () => {
-//     if (!groupName.trim()) {
-//       return; // Exit the function if groupName is empty or contains only whitespace
-//     }
-
-//     setGroups((prevGroups) => [...prevGroups, groupName]);
-
-//     setGroupName("");
-//   };
-
-//   return (
-//     <div className={`modalOutline ${className}`}>
-//       <h3>Create New group</h3>
-//       <div className="flexbetween">
-//         <h3>Group Name</h3>
-//         <input
-//           type="text"
-//           placeholder="Enter Group name..."
-//           value={groupName}
-//           onChange={(e) => setGroupName(e.target.value)}
-//         />
-//       </div>
-//       <div className="flexbetween">
-//         <h3>Choose colour</h3>
-//         <input type="circle" />
-//       </div>
-//       <button onClick={handleModal}>Create</button>
-//     </div>
-//   );
-// };
-
-// export default Modal;
 
 import React, { useState } from "react";
 
