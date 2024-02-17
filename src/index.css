@@ -1,0 +1,294 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --lightblue: #dae5f5;
+  --black: #000000;
+  --white: #ffffff;
+  --darkblue: #16008b;
+  /* font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bitter', serif;
+  font-family: 'Catamaran', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Protest Riot', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Slab', serif;
+  font-family: 'Vollkorn', serif; */
+}
+
+.mainHeading {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.subHeading {
+  font-size: 20px;
+}
+
+.section {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+}
+
+.modalPosition {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tabSection {
+  width: 25%;
+  height: 100vh;
+  background-color: var(--white);
+  display: flex;
+  /* justify-content: center; */
+  position: relative;
+  padding: 2rem 0;
+  flex-direction: column;
+}
+
+.title {
+  text-align: center;
+}
+
+.plusBtn {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: var(--darkblue);
+  color: var(--white);
+  border-radius: 50%;
+  bottom: 2rem;
+  right: 2rem;
+  cursor: pointer;
+}
+
+.tabDataOutline {
+  background-color: var(--lightblue);
+  width: 75%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tabDataSection {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 100%;
+  }
+}
+
+.flexbetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* MODAL START */
+.modalOutline {
+  width: 30rem;
+  height: 15rem;
+  background-color: var(--white);
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+
+  input {
+    padding: 8px 8px;
+    width: 60%;
+    border-radius: 0.7rem;
+    border: 1px solid rgb(166, 166, 166);
+    outline: none;
+  }
+
+  button {
+    padding: 5px 14px;
+    border: none;
+    border-radius: 11px;
+    float: right;
+    background-color: var(--darkblue);
+    color: white;
+  }
+}
+
+.Section.modalOpen {
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+}
+
+.dataCards {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.dataCard {
+  background-color: var(--white);
+  width: 100%;
+  /* box-sizing: border-box; */
+  padding: 0.7rem 0.7rem;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+/* .dataCard:hover {
+  background-color: rgb(205, 205, 205);
+} */
+
+.dataTabWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+
+.dataTabWrap:hover,
+.dataTabWrap:hover .dataCard {
+  background-color: rgb(205, 205, 205);
+}
+
+.initials {
+  border: none;
+  background-color: rgb(230, 77, 77);
+  color: white;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  padding: 1.4rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+width: 60%;
+  button {
+    border-radius: 50%;
+    width: 1rem;
+    padding: 0.7rem;
+  }
+}
+
+/* MODAL END */
+
+/* NOTES START */
+
+.notesSection {
+  width: 100%;
+  height: 100vh;
+}
+
+.noteTopsBar {
+  height: 10vh;
+  background-color: var(--darkblue);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.1rem 1rem;
+
+  h1 {
+    color: var(--white);
+  }
+}
+
+.notesData {
+  height: 70vh;
+  width: 100%;
+  padding: 1.2rem;
+
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.note {
+  background-color: var(--white);
+  padding: 0.4rem 0.8rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+  gap: 1rem;
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+}
+
+.noteDateTime {
+  text-align: right;
+}
+
+.inputSection {
+  width: 100%;
+  height: 20vh;
+  padding: 1rem;
+  background-color: var(--darkblue);
+  display: flex;
+  align-items: end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  input {
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    vertical-align: top;
+    position: relative;
+    font-size: 1rem;
+  }
+
+  .sentButton {
+    position: absolute;
+    right: 3rem;
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--darkblue);
+  }
+}
+/* NOTES END */
