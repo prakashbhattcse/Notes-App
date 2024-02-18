@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import home from "../src/assets/body.png";
 import Modal from "./Components/Modal";
 import Notes from "./Components/Notes";
@@ -9,10 +9,12 @@ const Home = () => {
   );
   const [open, setOpen] = useState(false);
   const [selectedGroup, setSelectedGroup] = useState(null);
+  const [isMobileNavVisible, setIsMobileNavVisible] = useState(true);
   const [initials, setInitials] = useState("");
   const [notesData, setNotesData] = useState(
     () => JSON.parse(localStorage.getItem("notesData")) || {}
   );
+  const [selectedColor, setSelectedColor] = useState(""); // State to store selected color from modal
 
   const openModal = () => {
     setOpen(!open);
@@ -28,35 +30,48 @@ const Home = () => {
   }, [groups, notesData]);
 
   return (
-    <div className={`Section flexbetween`}>
-      {open && <Modal className="modalPosition" setGroups={setGroups} closeModal={closeModal}/>}
+    <div className={`Section flexbetween ${isMobileNavVisible ? 'mobile-nav-visible' : ''}`}>
+
 
       {/* SIDEBAR START */}
       <div className="tabSection">
+      {open && (
+        <Modal
+          className="modalPosition"
+          setGroups={setGroups}
+          closeModal={closeModal}
+          setSelectedColor={setSelectedColor}
+        />
+      )}
         <div className="heading title">Pocket Notes</div>
 
         {/* TAB CARDS START*/}
         <div className="dataCards">
-          {groups.map((group) => {
-            const initials = group
+          {groups.map((group, index) => {
+            const initials = group.name
               .split(" ")
               .map((word) => word[0])
               .join("");
             return (
-              <div className="dataTabWrap"
+              <div
+                key={index}
+                className="dataTabWrap"
                 onClick={() => {
-                  setSelectedGroup(group);
-                  setInitials(initials); // Set initials when a group is clicked
+                  setSelectedGroup(group.name);
+                  setInitials(initials);
+                  setSelectedColor(group.color);
+                  setIsMobileNavVisible(false);
                 }}
               >
-                <div className="initials">{initials}</div>
-                <div key={group} className="dataCard">
-                  {group}
+                <div
+                  className="initials"
+                  style={{ backgroundColor: group.color }}
+                >
+                  {initials}
                 </div>
+                <div className="dataCard">{group.name}</div>
               </div>
             );
-
-
           })}
         </div>
         {/* TAB CARDS END*/}
@@ -73,6 +88,7 @@ const Home = () => {
             setGroups={setGroups}
             groups={selectedGroup}
             initials={initials}
+            color={selectedColor} 
             notesData={notesData[selectedGroup] || []}
             setNotesData={(newNotes) =>
               setNotesData((prevNotesData) => ({

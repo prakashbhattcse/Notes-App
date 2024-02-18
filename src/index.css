@@ -38,7 +38,7 @@ body {
   font-size: 20px;
 }
 
-.section {
+.Section {
   width: 100vw;
   min-height: 100vh;
   position: relative;
@@ -47,7 +47,7 @@ body {
 .modalPosition {
   position: absolute;
   display: block;
-  left: 50%;
+  left: 230%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
@@ -138,10 +138,6 @@ body {
   }
 }
 
-.Section.modalOpen {
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
-}
-
 .dataCards {
   width: 100%;
   display: flex;
@@ -150,6 +146,7 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   margin-top: 1rem;
+  overflow-y: scroll;
 }
 
 .dataCard {
@@ -181,7 +178,7 @@ body {
 
 .initials {
   border: none;
-  background-color: rgb(230, 77, 77);
+  /* background-color: rgb(230, 77, 77); */
   color: white;
   border-radius: 50%;
   height: 2rem;
@@ -199,11 +196,12 @@ body {
   display: flex;
   gap: 5px;
   align-items: center;
-width: 60%;
+  width: 60%;
   button {
     border-radius: 50%;
     width: 1rem;
     padding: 0.7rem;
+    cursor: pointer;
   }
 }
 
@@ -292,3 +290,105 @@ width: 60%;
   }
 }
 /* NOTES END */
+
+/* RESPONSIVE SECTION */
+/* RESPONSIVE SECTION */
+/* RESPONSIVE SECTION */
+/* RESPONSIVE SECTION */
+/* RESPONSIVE SECTION */
+/* RESPONSIVE SECTION */
+/* RESPONSIVE SECTION */
+
+/* @media only screen and (max-width: 600px) {
+ 
+
+  .flexbetween {
+    display: flex;
+  
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tabSection {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--white);
+    display: flex;
+    position: relative;
+    padding: 2rem 0;
+    flex-direction: column;
+  }
+} */
+
+/* Show sidebar and hide .tabDataOutline section by default on mobile screens */
+@media only screen and (max-width: 600px) {
+  .tabSection {
+    display: block;
+    width: 100%;
+  }
+  .tabDataOutline {
+    display: none;
+    width: 100%;
+  }
+
+  .modalPosition {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .modalOutline {
+    width: 22rem;
+    height: 13rem;
+    background-color: var(--white);
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    input {
+      padding: 8px 8px;
+      width: 60%;
+      border-radius: 0.7rem;
+      border: 1px solid rgb(166, 166, 166);
+      outline: none;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 5px 14px;
+      border: none;
+      border-radius: 11px;
+      float: right;
+      background-color: var(--darkblue);
+      color: white;
+    }
+  }
+
+  .btnGroup {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 60%;
+    button {
+      border-radius: 50%;
+     
+      padding: 0.7rem;
+      cursor: pointer;
+    }
+  }
+}
+
+/* Hide sidebar and show .tabDataOutline section when .mobile-nav-visible class is not present */
+@media only screen and (max-width: 600px) {
+  .Section:not(.mobile-nav-visible) .tabSection {
+    display: none;
+  }
+  .Section:not(.mobile-nav-visible) .tabDataOutline {
+    display: block;
+  }
+}
